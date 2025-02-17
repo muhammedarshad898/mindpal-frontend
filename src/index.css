@@ -1,0 +1,264 @@
+*{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+.navbar{
+  background-color: whitesmoke;
+  font-size: large;
+  font-weight: 60px;
+}
+#log{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 25px;
+}
+.para{
+  font-size: 20px;
+  font-weight: 500;
+ line-height: 35px;
+ text-align: justify;
+}
+.story{
+  font-size: 20px;
+  font-weight: 500;
+ line-height: 35px;
+ text-align: justify;
+
+}
+.para2{
+  font-size: 20px;
+  font-weight: 500;
+ line-height: 35px;
+ text-align: justify;
+
+
+}
+#landing{
+  background-color:white
+}
+
+
+  .test{
+  
+  font-size: large;
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background: #101039;
+  color: white;
+  transition: width 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.sidebar.light {
+  background: #d0cfd6;
+  color: #000;
+}
+
+.sidebar .toggle-btn {
+  position: absolute;
+  top: 20px;
+  right: -20px;
+  background: #1e1e2f;
+  border: none;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.sidebar.open .toggle-btn {
+  transform: rotate(180deg);
+}
+
+/* Profile Section */
+.profile-section {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.profile-section .avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.profile-section .user-info {
+  margin-left: 10px;
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  gap: 10px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Navigation Links */
+.nav-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.nav-links li:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Theme Toggle and Logout */
+.theme-toggle, .logout {
+  padding: 20px;
+  cursor: pointer;
+}
+
+.logout {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Collapsed Sidebar */
+.sidebar:not(.open) {
+  width: 80px;
+}
+
+.sidebar:not(.open) .nav-links li span,
+.sidebar:not(.open) .profile-section .user-info,
+.sidebar:not(.open) .search-bar input {
+  display: none;
+}
+.banner{
+  background-image: url('https://www.denverimagine.com/wp-content/uploads/2024/01/5-Benefits-of-Family-Therapy.jpeg');
+  background-size: cover;
+  height: 100vh;
+ 
+  
+}
+.para3{
+  font-size: 20px;
+  font-weight: 500;
+ line-height: 35px;
+ text-align: justify;
+ color: #fcfcfc;
+
+}
+.sample{
+  color: rgb(203, 23, 131);
+  font-size: 50px;
+  line-height: 35px;
+}
+.sample2{
+  font-size: 50px;
+  color: rgb(13, 138, 138);
+}
+
+#btn-apo{
+  background-color:rgb(203, 23, 131) ;
+  color: #d0cfd6;
+font-weight: bold;
+
+
+}
+.appointment{
+  background-image: url('https://www.evms.edu/media/evms_public/departments/health_professions/clinical-psych-hero-2000x1149.jpg');
+  background-size: cover;
+  height: 100vh;
+}
+#support{
+  color: rgb(31, 80, 170);
+}
+#btn-slot{
+  height: 50px;
+  width: 300px;
+  background-color: #6b116e;
+  color: #d0cfd6;
+  font-size: 20px;
+  font-weight: 500;
+
+}
+.post{
+  background-image: url('https://assets.weforum.org/article/image/responsive_big_JrZVHz4jlGgao03dGDd5GbvZ_7LmrE63LhEJTKml36c.jpg');
+  background-size: cover;
+  height: 100vh;
+}
+#btn-post{
+  height: 50px;
+  width: 300px;
+  background-color: #a91541;
+  color: #d0cfd6;
+  font-size: 20px;
+  font-weight: 500;
+
+}
+.headingpost{
+  color: rgb(9, 106, 74);
+}
+.navbar1{
+  background-color: white;
+  position: fixed;
+}
+.profile{
+  position:fixed;
+  background-color: rgb(230, 236, 239);
+  
+}
+#auth{
+  background-image: url('https://whatallergy.com/wp-content/uploads/2022/06/support-1024x644.jpg');
+  background-size:cover ;
+  border-radius: 10px;
+ 
+ 
+ 
+}
+.loghead{
+  color: #271841;
+}
+.doc{
+  background-color: rgb(248, 247, 247);
+
+  
+}
+.authbg{
+  background-color:  rgb(235, 225, 225,0.5);;
+}
+.sidenav{
+  background-color: aliceblue;
+}
+.home{
+  height: 40px;
+  width:150px
+}
+.adminhd{
+  color: #a91541;
+}
+.docside{
+  background-color: #e3ebe6;
+}
+
