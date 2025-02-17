@@ -39,16 +39,16 @@ function Appointment() {
    <>
     <Navbar expand="lg" data-bs-theme="light" className="navbar">
         <Container>
-          {/* Brand Logo */}
+         
           <Navbar.Brand href="/" className="text-primary" id="log">
             <i className="fa-regular fa-handshake fa-xl" style={{ color: "#0f6ba3" }} />{' '}
             Mindpal
           </Navbar.Brand>
 
-          {/* Navbar Toggler for Mobile */}
+         
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
-          {/* Collapsible Navbar Links */}
+         
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
               <Nav.Link as={NavLink} to="/" className="text-dark">Home</Nav.Link>

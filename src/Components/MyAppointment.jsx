@@ -32,16 +32,11 @@ function MyAppointment() {
     }
 
     const handleLogout = () => {
-      sessionStorage.removeItem('token'); 
-      toast.info("Logged out successfully!"); 
-      setTimeout(() => {
-          nav('/auth', { replace: true }); 
-      }, 500); 
-  
-      setTimeout(() => {
-          window.location.reload(); 
-      }, 1500); 
-  };
+      sessionStorage.removeItem('token');
+      toast.info("Logged out successfully!");
+      nav('/auth', { replace: true }); // Redirect immediately after logout
+   };
+   
   
   
   
