@@ -9,13 +9,11 @@ import { toast } from 'react-toastify';
 function Admindashboard() {
   const nav=useNavigate()
   const handleLogout = () => {
-       sessionStorage.removeItem('token'); 
-       nav('/auth', { replace: true }); 
-       setTimeout(() => {
-           window.location.reload(); 
-       }, 100); 
-       toast.info("Logged out successfully!");
-   };
+        sessionStorage.removeItem('token');
+        toast.info("Logged out successfully!");
+        nav('/auth', { replace: true }); // Redirect immediately after logout
+     };
+     
   return (
     <>
     <Navbar expand="lg" className="bg-body-tertiary">
