@@ -12,6 +12,7 @@ import Card from 'react-bootstrap/Card';
 import { useState,useEffect } from 'react';
 import { getdoctorapi } from '../services/allapi';
 import base_url from '../services/baseurl';
+import { NavLink } from 'react-router-dom';
 
 
 function Appointment() {
@@ -50,10 +51,10 @@ function Appointment() {
           {/* Collapsible Navbar Links */}
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link href="/" className="text-dark">Home</Nav.Link>
-              <Nav.Link href="/psychologist" className="text-dark">Psychologists</Nav.Link>
-              <Nav.Link href="/dr" className="text-dark">Psychiatry</Nav.Link>
-              <Nav.Link href="/myappo" className="text-dark">My Appointments</Nav.Link>
+              <Nav.Link as={NavLink} to="/" className="text-dark">Home</Nav.Link>
+              <Nav.Link as={NavLink} to="/psychologist" className="text-dark">Psychologists</Nav.Link>
+              <Nav.Link as={NavLink} to="/dr" className="text-dark">Psychiatry</Nav.Link>
+              <Nav.Link as={NavLink} to="/myappo" className="text-dark">My Appointments</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
