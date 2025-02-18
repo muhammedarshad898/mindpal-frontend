@@ -37,11 +37,12 @@ function Dashboard() {
     
   }
  }
- const handleLogout = () => {
-  sessionStorage.removeItem('token'); // Remove JWT token
-  nav('/auth'); // Redirect to login page
-  toast.success("Logged out successfully!"); // Show logout success message
-};
+  const handleLogout = () => {
+       sessionStorage.removeItem('token');
+       toast.info("Logged out successfully!");
+       nav('/auth', { replace: true }); // Redirect immediately after logout
+    };
+    
   return (
     <>
      <Navbar expand="lg" className="bg-body-tertiary">
