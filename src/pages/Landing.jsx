@@ -58,42 +58,47 @@ function Landing() {
    
    </div>
    </div>
-   <div className='container-fluid row  justify-content-center mt-5'>
-   <Card style={{ width: '18rem',padding:"0px" }}  className='me-5 mb-2'>
-      <Card.Img variant="top" src="https://api.kramesstaywell.com/Content/6066ca30-310a-4170-b001-a4ab013d61fd/ucr-images-v1/Images/depressed-teenager-273299" style={{height:"250px"}} className='img-fluid' />
-      <Card.Body>
-        <Card.Title className='text-success'>Recognise the Signs</Card.Title>
-        <Card.Text>
-        Don't Ignore the Warning Signs,Depression can manifest differently in everyone.
-        </Card.Text>
+ 
+   <div className='container-fluid mt-5'>
+  <Row className='justify-content-center'>
+    <Col xs={12} sm={6} md={4} className='d-flex justify-content-center mb-4'>
+      <Card style={{ width: '18rem', padding: "0px" }}>
+        <Card.Img variant="top" src="https://api.kramesstaywell.com/Content/6066ca30-310a-4170-b001-a4ab013d61fd/ucr-images-v1/Images/depressed-teenager-273299" style={{ height: "250px" }} className='img-fluid' />
+        <Card.Body>
+          <Card.Title className='text-success'>Recognise the Signs</Card.Title>
+          <Card.Text>Don't Ignore the Warning Signs, Depression can manifest differently in everyone.</Card.Text>
+          <Link className='btn btn-success' to={sessionStorage.getItem('token') ? '/test' : '/auth'}>Take a Test</Link>
+        </Card.Body>
+      </Card>
+    </Col>
 
-       
-        <Link className='btn btn-success' to={sessionStorage.getItem('token')?'/test':'/auth'}>Take a Test</Link>
-      </Card.Body>
-    </Card>
-   <Card style={{ width: '18rem',padding:"0px"  }} className='me-5 mb-2'>
-      <Card.Img variant="top" src="https://res.cloudinary.com/jerrick/image/upload/c_scale,q_auto/ev6h6d3edq9jgbnpntvf.jpg" style={{height:"250px"}}  className='img-fluid'/>
-      <Card.Body>
-        <Card.Title className='text-success'>Breaking the Stigma</Card.Title>
-        <Card.Text>
-        Depression is not a sign of weakness. It's a sign of strength to seek help.
-        </Card.Text>
-       
-        <Link className="btn btn-success" to={sessionStorage.getItem('token')?'/post':'/auth'}>Share your Story</Link>
-      </Card.Body>
-    </Card>
-    <Card style={{ width: '18rem',padding:"0px"  }} className='me-5 mb-2'>
-      <Card.Img variant="top" src="https://www.goodtherapy.org/blog/blog/wp-content/uploads/2016/01/Woman-therapist-smiling-at-person-in-therapy.jpg" style={{height:"250px"}} className='img-fluid' />
-      <Card.Body>
-        <Card.Title className='text-success'>Get Help Now</Card.Title>
-        <Card.Text>
-        Don't suffer in silence. Reach out to:
-    - Mental health professionals
-     </Card.Text>
-     <Link className="btn btn-success mt-4" to={sessionStorage.getItem('token')?'/appointment':'/auth'}>Book A Slot</Link>
-      </Card.Body>
-    </Card>
-   </div>
+    <Col xs={12} sm={6} md={4} className='d-flex justify-content-center mb-4'>
+      <Card style={{ width: '18rem', padding: "0px" }}>
+        <Card.Img variant="top" src="https://res.cloudinary.com/jerrick/image/upload/c_scale,q_auto/ev6h6d3edq9jgbnpntvf.jpg" style={{ height: "250px" }} className='img-fluid' />
+        <Card.Body>
+          <Card.Title className='text-success'>Breaking the Stigma</Card.Title>
+          <Card.Text>Depression is not a sign of weakness. It's a sign of strength to seek help.</Card.Text>
+          <Link className="btn btn-success" to={sessionStorage.getItem('token') ? '/post' : '/auth'}>Share your Story</Link>
+        </Card.Body>
+      </Card>
+    </Col>
+
+    <Col xs={12} sm={6} md={4} className='d-flex justify-content-center mb-4'>
+      <Card style={{ width: '18rem', padding: "0px" }}>
+        <Card.Img variant="top" src="https://www.goodtherapy.org/blog/blog/wp-content/uploads/2016/01/Woman-therapist-smiling-at-person-in-therapy.jpg" style={{ height: "250px" }} className='img-fluid' />
+        <Card.Body>
+          <Card.Title className='text-success'>Get Help Now</Card.Title>
+          <Card.Text>
+            Don't suffer in silence. Reach out to:
+            <br />- Mental health professionals
+          </Card.Text>
+          <Link className="btn btn-success mt-4" to={sessionStorage.getItem('token') ? '/appointment' : '/auth'}>Book A Slot</Link>
+        </Card.Body>
+      </Card>
+    </Col>
+  </Row>
+</div>
+
    <div className='mt-5 container fluid mt-5'>
     <Row>
       <Col className='d-flex flex-column justify-content-center' md={6}>
@@ -107,28 +112,27 @@ function Landing() {
    </div>
    {
     doctor.length>0?
-    <div className=' container-fluid row mt-5 justify-content-center'>
-      {
-        doctor.slice(0,3).map(item=>(
-          <Card style={{ width: '18rem' }} className='me-5 p-0 mb-3'>
-      <Card.Img variant="top" src={`${base_url}/uploads/${item.image}`} style={{height:"250px"}}/>
-      <Card.Body>
-        <Card.Title>{item.username}</Card.Title>
-        <Card.Text>
-         <h6>{item.qualification}</h6>
-         
-        </Card.Text>
-        <Link className="btn btn-success" to={sessionStorage.getItem('token')?'/appointment':'/auth'}>Book A Slot</Link>
-      </Card.Body>
-    </Card>
+  //  
+  <div className='container-fluid mt-5'>
+  <Row className='justify-content-center'>
+    {
+      doctor.length > 0 &&
+      doctor.slice(0, 3).map(item => (
+        <Col xs={12} sm={6} md={4} className='d-flex justify-content-center mb-4' key={item._id}>
+          <Card style={{ width: '18rem' }} className='p-0'>
+            <Card.Img variant="top" src={`${base_url}/uploads/${item.image}`} style={{ height: "250px" }} />
+            <Card.Body>
+              <Card.Title>{item.username}</Card.Title>
+              <Card.Text><h6>{item.qualification}</h6></Card.Text>
+              <Link className="btn btn-success" to={sessionStorage.getItem('token') ? '/appointment' : '/auth'}>Book A Slot</Link>
+            </Card.Body>
+          </Card>
+        </Col>
+      ))
+    }
+  </Row>
+</div>
 
-        ))
-      }
-
-
-   
-    
-   </div>
    :
    <h2 className='text-center text-danger mt-3'>No content Available</h2>
    }

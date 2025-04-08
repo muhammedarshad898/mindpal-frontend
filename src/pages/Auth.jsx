@@ -1,4 +1,4 @@
-import React from 'react'
+ import React from 'react'
 import { useState ,useEffect} from 'react'
 import { loginapi, registerapi } from '../services/allapi'
 import { toast } from 'react-toastify'
@@ -183,4 +183,4 @@ function Auth() {
   )
 }
 
-export default Auth
+ export default Auth

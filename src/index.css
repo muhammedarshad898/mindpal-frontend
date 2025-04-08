@@ -80,24 +80,7 @@
   transform: rotate(180deg);
 }
 
-/* Profile Section */
-.profile-section {
-  display: flex;
-  align-items: center;
-  padding: 20px;
-}
 
-.profile-section .avatar {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
-
-.profile-section .user-info {
-  margin-left: 10px;
-}
-
-/* Search Bar */
 .search-bar {
   display: flex;
   align-items: center;
@@ -112,7 +95,7 @@
   border-radius: 5px;
 }
 
-/* Navigation Links */
+
 .nav-links ul {
   list-style: none;
   padding: 0;
@@ -132,8 +115,25 @@
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* Theme Toggle and Logout */
-.theme-toggle, .logout {
+
+.theme-toggle, .logout {Profile Section
+.profile-section {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.profile-section .avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.profile-section .user-info {
+  margin-left: 10px;
+}
+
+
   padding: 20px;
   cursor: pointer;
 }
@@ -144,7 +144,7 @@
   gap: 10px;
 }
 
-/* Collapsed Sidebar */
+
 .sidebar:not(.open) {
   width: 80px;
 }
@@ -261,4 +261,3 @@ font-weight: bold;
 .docside{
   background-color: #e3ebe6;
 }
-
