@@ -1,3 +1,4 @@
+
 *{
   padding: 0px;
   margin: 0px;
@@ -12,34 +13,19 @@
   font-family: 'Courier New', Courier, monospace;
   font-size: 25px;
 }
-.para{
+.para, .story, .para2, .para3 {
   font-size: 20px;
   font-weight: 500;
- line-height: 35px;
- text-align: justify;
+  line-height: 35px;
+  text-align: justify;
 }
-.story{
-  font-size: 20px;
-  font-weight: 500;
- line-height: 35px;
- text-align: justify;
-
-}
-.para2{
-  font-size: 20px;
-  font-weight: 500;
- line-height: 35px;
- text-align: justify;
-
-
+.para3 {
+  color: #fcfcfc;
 }
 #landing{
-  background-color:white
+  background-color:white;
 }
-
-
-  .test{
-  
+.test{
   font-size: large;
 }
 .sidebar {
@@ -56,12 +42,10 @@
   justify-content: space-between;
   overflow: hidden;
 }
-
 .sidebar.light {
   background: #d0cfd6;
   color: #000;
 }
-
 .sidebar .toggle-btn {
   position: absolute;
   top: 20px;
@@ -75,33 +59,26 @@
   cursor: pointer;
   transition: transform 0.3s;
 }
-
 .sidebar.open .toggle-btn {
   transform: rotate(180deg);
 }
-
-
 .search-bar {
   display: flex;
   align-items: center;
   padding: 10px 20px;
   gap: 10px;
 }
-
 .search-bar input {
   flex: 1;
   padding: 5px;
   border: none;
   border-radius: 5px;
 }
-
-
 .nav-links ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
 .nav-links li {
   padding: 15px 20px;
   display: flex;
@@ -110,154 +87,327 @@
   cursor: pointer;
   transition: background 0.3s;
 }
-
 .nav-links li:hover {
   background: rgba(255, 255, 255, 0.1);
 }
-
-
-.theme-toggle, .logout {Profile Section
-.profile-section {
-  display: flex;
-  align-items: center;
-  padding: 20px;
-}
-
-.profile-section .avatar {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
-
-.profile-section .user-info {
-  margin-left: 10px;
-}
-
-
+.theme-toggle, .logout {
   padding: 20px;
   cursor: pointer;
 }
-
 .logout {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-
-
 .sidebar:not(.open) {
   width: 80px;
 }
-
 .sidebar:not(.open) .nav-links li span,
 .sidebar:not(.open) .profile-section .user-info,
 .sidebar:not(.open) .search-bar input {
   display: none;
 }
-.banner{
+.banner {
   background-image: url('https://www.denverimagine.com/wp-content/uploads/2024/01/5-Benefits-of-Family-Therapy.jpeg');
   background-size: cover;
   height: 100vh;
- 
-  
 }
-.para3{
-  font-size: 20px;
-  font-weight: 500;
- line-height: 35px;
- text-align: justify;
- color: #fcfcfc;
-
-}
-.sample{
+.sample {
   color: rgb(203, 23, 131);
   font-size: 50px;
   line-height: 35px;
 }
-.sample2{
+.sample2 {
   font-size: 50px;
   color: rgb(13, 138, 138);
 }
-
-#btn-apo{
-  background-color:rgb(203, 23, 131) ;
+#btn-apo {
+  background-color: rgb(203, 23, 131);
   color: #d0cfd6;
-font-weight: bold;
-
-
+  font-weight: bold;
 }
-.appointment{
+.appointment {
   background-image: url('https://www.evms.edu/media/evms_public/departments/health_professions/clinical-psych-hero-2000x1149.jpg');
   background-size: cover;
   height: 100vh;
 }
-#support{
+#support {
   color: rgb(31, 80, 170);
 }
-#btn-slot{
+#btn-slot {
   height: 50px;
   width: 300px;
   background-color: #6b116e;
   color: #d0cfd6;
   font-size: 20px;
   font-weight: 500;
-
 }
-.post{
+.post {
   background-image: url('https://assets.weforum.org/article/image/responsive_big_JrZVHz4jlGgao03dGDd5GbvZ_7LmrE63LhEJTKml36c.jpg');
   background-size: cover;
   height: 100vh;
 }
-#btn-post{
+#btn-post {
   height: 50px;
   width: 300px;
   background-color: #a91541;
   color: #d0cfd6;
   font-size: 20px;
   font-weight: 500;
-
 }
-.headingpost{
+.headingpost {
   color: rgb(9, 106, 74);
 }
-.navbar1{
+.navbar1 {
   background-color: white;
   position: fixed;
 }
-.profile{
-  position:fixed;
+.profile {
+  position: fixed;
   background-color: rgb(230, 236, 239);
-  
 }
-#auth{
+#auth {
   background-image: url('https://whatallergy.com/wp-content/uploads/2022/06/support-1024x644.jpg');
-  background-size:cover ;
+  background-size: cover;
   border-radius: 10px;
- 
- 
- 
 }
-.loghead{
+.loghead {
   color: #271841;
 }
-.doc{
+.doc {
   background-color: rgb(248, 247, 247);
-
-  
 }
-.authbg{
-  background-color:  rgb(235, 225, 225,0.5);;
+.authbg {
+  background-color: rgb(235, 225, 225, 0.5);
 }
-.sidenav{
+.sidenav {
   background-color: aliceblue;
 }
-.home{
+.home {
   height: 40px;
-  width:150px
+  width: 150px;
 }
-.adminhd{
+.adminhd {
   color: #a91541;
 }
-.docside{
+.docside {
   background-color: #e3ebe6;
 }
+.profile-section {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+.profile-section .avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.profile-section .user-info {
+  margin-left: 10px;
+}
+
+/* ✅ Responsive styles for auth page only */
+@media screen and (max-width: 768px) {
+  #auth {
+    width: 95% !important;
+    height: auto !important;
+    padding: 10px;
+  }
+
+  .authbg {
+    width: 100% !important;
+    padding: 20px 10px !important;
+  }
+
+  .authbg input,
+  .authbg select {
+    width: 100% !important;
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .authbg h1 {
+    font-size: 24px !important;
+    margin-bottom: 20px;
+  }
+
+  .authbg .btn {
+    font-size: 16px !important;
+    padding: 10px 20px !important;
+    margin: 5px;
+  }
+
+  .loghead {
+    text-align: center;
+  }
+
+  .d-flex.justify-content-between.mt-5 {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .form-control {
+    font-size: 16px !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .appointment {
+    padding: 30px 10px;
+    text-align: center;
+  }
+
+  .appointment h1 {
+    font-size: 22px;
+    line-height: 32px;
+  }
+
+  #btn-slot {
+    width: 90% !important;
+    font-size: 18px;
+    height: 45px;
+  }
+
+  .container .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container .row .card {
+    width: 90% !important;
+    margin: 10px 0 !important;
+  }
+
+  .card-body h6 {
+    font-size: 16px;
+  }
+
+  .card .btn {
+    width: 100%;
+    font-size: 16px;
+    padding: 8px 0;
+  }
+
+  .text-success {
+    font-size: 24px;
+  }
+
+  .text-danger {
+    font-size: 20px;
+  }
+
+  .btn-primary {
+    width: 100%;
+    font-size: 18px;
+    margin-top: 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90% !important;
+    margin-bottom: 20px !important;
+  }
+
+  .card img {
+    height: auto !important;
+    max-height: 300px;
+    object-fit: cover;
+  }
+
+  .card .btn {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  h1, h2, h3 {
+    font-size: 22px !important;
+    text-align: center;
+  }
+
+  .p-5 {
+    padding: 20px !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .banner h1 {
+    font-size: 24px !important;
+    text-align: center;
+  }
+
+  .banner .para3 {
+    font-size: 16px;
+    line-height: 26px;
+    text-align: center;
+  }
+
+  #btn-apo {
+    width: 90%;
+    font-size: 16px;
+    display: block;
+    margin: 20px auto;
+  }
+
+  .container .form-control {
+    width: 100% !important;
+    margin-top: 10px;
+  }
+
+  .row {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .card {
+    width: 90% !important;
+    margin: 10px auto !important;
+  }
+
+  .card img {
+    height: auto !important;
+    max-height: 300px;
+    object-fit: cover;
+  }
+
+  .card .btn {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .p-5 {
+    padding: 20px !important;
+  }
+
+  .sample, .sample2 {
+    font-size: 28px;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 768px) {
+  .row {
+    margin: 0 !important;
+    padding: 0 !important;
+    justify-content: center !important;
+  }
+
+  .card {
+    width: 95% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    float: none !important;
+  }
+}
+
+
+
