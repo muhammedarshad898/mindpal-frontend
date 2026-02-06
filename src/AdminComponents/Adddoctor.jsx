@@ -84,7 +84,7 @@ function Adddoctor() {
             <Col md={4}>
             <label>
               <input type="file" style={{display:"none"}} onChange={(e)=>setdoctor({...doctor,image:e.target.files[0]})} />
-              <img src={preview?preview:"https://medhacloud.com/wp-content/uploads/2023/03/Backup-Logo.svg"} alt="" className='img-fluid' style={{cursor:"pointer"}}  />
+              <img src={preview?preview:"/images/upload.jpg"} alt="" className='img-fluid' style={{cursor:"pointer"}}  />
             </label>
             </Col>
             <Col md={8}>
