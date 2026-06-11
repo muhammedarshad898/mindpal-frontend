@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
+import SimpleNav from '../Components/SimpleNav';
 
 const questions=[
   {
@@ -9,7 +10,7 @@ const questions=[
     isgeneral:true,
     answerOptons:[
       {
-        answerText:'Men' 
+        answerText:'Men'
       },
       {
         answerText:'women'
@@ -19,7 +20,7 @@ const questions=[
       }
     ]
 
-    
+
   },
   {
     questionText:'What is your age?',
@@ -45,7 +46,7 @@ const questions=[
       }
     ]
 
-    
+
   },
   {
     questionText:'How do you identify identity?',
@@ -68,7 +69,7 @@ const questions=[
       }
     ]
 
-    
+
   },
   {
     questionText:'what is your current realtionship status?',
@@ -95,7 +96,7 @@ const questions=[
 
     ]
 
-    
+
   },
   {
     questionText:'How important religion in your life?',
@@ -113,11 +114,11 @@ const questions=[
       {
         answerText:'Important not at all'
       }
-     
+
 
     ]
 
-    
+
   },
   {
     questionText:'Have you ever been in  therapy before?',
@@ -129,12 +130,12 @@ const questions=[
       {
         answerText:'No', score:0
       }
-     
-     
+
+
 
     ]
 
-    
+
   },
   {
     questionText:'How often do you feel sad or empty?',
@@ -153,11 +154,11 @@ const questions=[
       {
         answerText:'Almost always', score:4
       }
-     
+
 
     ]
 
-    
+
   },
   {
     questionText:'Do you enjoy activities that used to bring you pleasure?',
@@ -176,11 +177,11 @@ const questions=[
       {
         answerText:'Never', score:4
       }
-     
+
 
     ]
 
-    
+
   },
   {
     questionText:'How do you feel anxious or worried?',
@@ -191,7 +192,7 @@ const questions=[
         answerText:'Rarely',score:1
       },
       {
-        answerText:'Occasionaly',score:2 
+        answerText:'Occasionaly',score:2
       },
       {
         answerText:'Most of the time', score:3
@@ -199,11 +200,11 @@ const questions=[
       {
         answerText:'Almost always',score:4
       }
-     
+
 
     ]
 
-    
+
   },
   {
     questionText:'How many hours of sleep do you get?',
@@ -222,11 +223,11 @@ const questions=[
       {
         answerText:'Less than 3 Hours', score:4
       },
-     
+
 
     ]
 
-    
+
   },
   {
     questionText:'How often do you socialize with friends or family?',
@@ -245,12 +246,12 @@ const questions=[
       {
         answerText:'Rearly', score:4
       },
-     
-     
+
+
 
     ]
 
-    
+
   },
   {
     questionText:'Do you avoid social situations due to feelings of anxiety or discomport?',
@@ -269,11 +270,11 @@ const questions=[
       {
         answerText:'Almost always', score:4
       },
-     
+
 
     ]
 
-    
+
   },
   {
     questionText:'How often do you engage in physical activity?',
@@ -292,13 +293,13 @@ const questions=[
       {
         answerText:'Rearly',score:4
       },
-     
-      
-     
+
+
+
 
     ]
 
-    
+
   },
   {
     questionText:'Do you use substances(eg,alcohol,drugs) to cope with stress or emotions?',
@@ -317,13 +318,13 @@ const questions=[
       {
         answerText:'Never', score:0
       },
-     
-      
-     
+
+
+
 
     ]
 
-    
+
   },
   {
     questionText:'Do you often experience negative thoughts about yourself or others?',
@@ -342,13 +343,13 @@ const questions=[
       {
         answerText:'Almost always', score:4
       },
-     
-      
-     
+
+
+
 
     ]
 
-    
+
   },
   {
     questionText:'Do you have difficulty concentrating or making decisions?',
@@ -367,13 +368,13 @@ const questions=[
       {
         answerText:'Almost always', score:4
       },
-     
-      
-     
+
+
+
 
     ]
 
-    
+
   },
   {
     questionText:'Do you experienced any traumatic events in your life?',
@@ -386,14 +387,14 @@ const questions=[
       {
         answerText:'No', score:1
       },
-    
-     
-      
-     
+
+
+
+
 
     ]
 
-    
+
   },
   {
     questionText:'Are you Currently experiencing any physical health issues?',
@@ -406,19 +407,19 @@ const questions=[
       {
         answerText:'No', score:1
       },
-    
-     
-      
-     
+
+
+
+
 
     ]
 
-    
+
   },
 
-  
 
-  
+
+
 
 
 ]
@@ -426,11 +427,11 @@ const questions=[
 
 function Test() {
   const [currentquestion,setcurrentquestion]=useState(0)
- 
+
   const [totalScore, setTotalScore] = useState(0);
   const [userDetails, setUserDetails] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
-  
+
   const handleaquestion=()=>{
     setcurrentquestion(currentquestion-1)
   }
@@ -449,45 +450,29 @@ function Test() {
     else{
       setIsSubmitted(true)
     }
-    
+
 
   }
-  
+
   return (
    <>
-  
-      <Navbar expand="lg" className="bg-body-tertiary">
-        <Container className='d-flex justify-content-center'>
-          
-          <Navbar.Brand href="#" className='d-flex justify-content-center flex-row align-items-center'>  <i className="fa-regular fa-handshake fa-xl" style={{color: "#0f6ba3",}} />
-          {' '}
-            Mindpal </Navbar.Brand>
-           
-        </Container>
-        <Link to={'/appointment'} className='btn btn-primary me-3'>Take an Appointment</Link>
-      </Navbar>
-   <div className='mt-5 container-fluid'>
-    <h1 className='text-center mb-5'>Help us match you to the right <span className='text-success'>therapist</span> </h1>
-    <p className='text-center test'  style={{textAlign:"justify"}}>It's important to have a therapist who you can establish a personal connection with.The following questions are ,<br/>
 
+      <SimpleNav rightContent={<Link to={'/appointment'} className='btn btn-primary'>Take an Appointment</Link>} />
 
-      designed to help match you to a licensed therapist based on your needs and personal preferences.
-      
-      </p>
-     
-
-
+   <div className='mp-test-intro'>
+    <h1>Help us match you to the right <span>therapist</span> </h1>
+    <p>It's important to have a therapist who you can establish a personal connection with. The following questions are designed to help match you to a licensed therapist based on your needs and personal preferences.</p>
    </div>
    {
     isSubmitted?(
-     
 
 
-<div className="d-flex justify-content-center align-items-center h-screen mt-5">
-<div className='border shadow w-50 d-flex justify-content-center align-items-center flex-column p-2' style={{borderRadius:"10px"}}>
-  <h2 className='mt-3 text-success'>Results</h2>
+
+<div className="d-flex justify-content-center align-items-center mt-5">
+<div className='mp-results-card'>
+  <h2>Results</h2>
 <h3 className='mt-3'>Total Score: {totalScore}</h3>
-  <p className='mt-3' style={{fontSize:"20px"}}>
+  <p className='mt-3'>
     {totalScore <= 10
       ? 'You seem to be in a good mental state.'
       : totalScore <= 20
@@ -495,7 +480,7 @@ function Test() {
       : 'It is recommended to consult a therapist for a detailed evaluation.'}
   </p>
   <h3 className='mt-2'>General Information</h3>
-  <ul className='mt-2 mb-5'>
+  <ul className='mt-2 mb-5' style={{listStyle:'none', padding:0}}>
     {Object.keys(userDetails).map((key) => (
       <li key={key} className='mt-2'>
         <strong>{key}:</strong> {userDetails[key]}
@@ -505,32 +490,32 @@ function Test() {
 </div>
 </div>
 
-      
-      
+
+
 
     ):(
-      <div className='d-flex justify-content-center align-items-center h-screen mt-5'>
-      <div className='w-50 border shadow'>
+      <div className='d-flex justify-content-center align-items-center mt-5'>
+      <div className='mp-quiz-card'>
         <div>
-          <div className='text-center' style={{fontSize:"30px"}}>{questions[currentquestion].questionText}
+          <div className='mp-quiz-question'>{questions[currentquestion].questionText}
             <div className='mt-5 d-flex flex-column justify-content-center align-items-center'>{questions[currentquestion].answerOptons.map((option,index)=>(
-              <button className='w-75  border rounded-pill mb-3 form-control' key={index} onClick={()=>handleanswer(option)} style={{fontSize:"20px"}}>{option.answerText}</button>))}
-              <button className='btn btn-success w-75 border rounded-pill ' onClick={handleaquestion}>Previous Question</button>
-              <p className='text-gray' style={{fontSize:"15px"}}>question {currentquestion+1} of {questions.length}</p>
+              <button className='mp-quiz-option' key={index} onClick={()=>handleanswer(option)}>{option.answerText}</button>))}
+              <button className='btn btn-primary mt-3' onClick={handleaquestion}>Previous Question</button>
+              <p className='mp-quiz-progress mt-3'>question {currentquestion+1} of {questions.length}</p>
               </div>
           </div>
         </div>
-  
-  
+
+
       </div>
-  
+
      </div>
-     
+
     )
    }
 
-  
-   
+
+
 
 
    </>

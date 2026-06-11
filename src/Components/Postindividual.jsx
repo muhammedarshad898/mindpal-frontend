@@ -4,13 +4,12 @@ import { Col, Row } from 'react-bootstrap';
 import { deletepostapi, getpostsapi, getprofileapi, likePostapi } from '../services/allapi';
 import base_url from '../services/baseurl';
 import Profile from './Profile';
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
 import { useParams } from 'react-router-dom';
 import { useContext } from 'react';
 import { responsecontext } from '../contextapi/Contextprovider';
 import { toast } from 'react-toastify';
 import { jwtDecode } from 'jwt-decode';
+import SimpleNav from './SimpleNav';
 
 
 function Postindividual() {
@@ -18,9 +17,9 @@ function Postindividual() {
     const [profiledetail, setProfileDetail] = useState({});
     const { userid } = useParams();
     const { response } = useContext(responsecontext);
-    
 
-   
+
+
     const token = sessionStorage.getItem('token');
     let loggedInUserId = null;
 
@@ -102,32 +101,24 @@ function Postindividual() {
 
     return (
         <>
-           
-            <Navbar className="navbar1 position-fixed w-100 shadow bg-white" style={{ top: 0, left: 0, zIndex: 1000 }}>
-                <Container className="d-flex justify-content-between align-items-center">
-                    <Navbar.Brand href="#home" className="text-primary" id="log">
-                        <i className="fa-regular fa-handshake fa-xl" style={{ color: "#0f6ba3" }} />{' '}
-                        Mindpal
-                    </Navbar.Brand>
-                    <Profile />
-                </Container>
-            </Navbar>
 
-           
-            <div className='main2' style={{ marginTop: "70px" }}>
+            <SimpleNav rightContent={<Profile />} />
+
+
+            <div className='main2'>
                 <Row>
-                  
+
                     <Col md={4}>
                         <div className='profile'>
-                            <div className='border shadow' style={{ height: "100vh", width: "250px", position: "fixed", top: "70px" }}>
+                            <div className='mp-profile-sidebar'>
                                 <div className='text-center mt-5'>
-                                    <i className="fa-regular fa-handshake fa-xl" style={{ color: "#0f6ba3" }} />{' '}
+                                    <i className="fa-regular fa-handshake fa-xl" />{' '}
                                     Mindpal
                                 </div>
                                 <div className='mt-5 container ms-2'>
-                                    <img src={`${base_url}/uploads/${profiledetail.image}`} alt="" className='img-fluid' style={{ height: "200px", width: "200px", borderRadius: "10px" }} />
+                                    <img src={`${base_url}/uploads/${profiledetail.image}`} alt="" className='img-fluid mp-profile-avatar' />
                                 </div>
-                                <div className='border shadow mt-2 container' style={{ height: "fit-content", width: "210px", borderRadius: "10px" }}>
+                                <div className='border shadow mt-2 container'>
                                     <h4 className='text-center'></h4>
                                     <p>{profiledetail.bio}</p>
                                 </div>
@@ -135,22 +126,22 @@ function Postindividual() {
                         </div>
                     </Col>
 
-                   
-                    <Col md={{ span: 8, offset: 4 }} style={{ paddingTop: "20px" }}>
+
+                    <Col md={{ span: 8, offset: 4 }}>
                         <div className='w-100'>
                             {postindividual.length > 0 ? (
                                 <div className='row justify-content-center align-items-center mt-5'>
                                     {postindividual.map(item => (
-                                        <div key={item._id} className='border shadow mb-3 p-3' style={{ width: "700px", borderRadius: "10px" }}>
+                                        <div key={item._id} className='mp-post-card'>
                                             <div className='d-flex flex-row mt-2 justify-content-between'>
-                                                <p className=''>{item.date}</p>
+                                                <p>{item.date}</p>
                                                 <h6 className='text-center'>{item.title}</h6>
                                             </div>
                                             <p>{item.thought}</p>
 
                                             {/* Like & Delete Button */}
                                             <div className='d-flex justify-content-center flex-wrap'>
-                                                <button className='btn btn-light me-2' onClick={() => handleLikePost(item._id)}> {item.likes.length}  
+                                                <button className='btn btn-light me-2' onClick={() => handleLikePost(item._id)}> {item.likes.length}
                                                     <i className="fa-solid fa-heart fa-xl" style={{ color: "#c90d45" }} />
                                                 </button>
 

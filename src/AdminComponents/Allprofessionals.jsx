@@ -1,100 +1,81 @@
-
 import React from 'react'
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
-import { useState,useEffect,useContext } from 'react';
-
-import Card from 'react-bootstrap/Card';
+import { useState, useEffect, useContext } from 'react';
+import { Row, Col } from 'react-bootstrap';
 import { deletedoctorapi, getdoctorapi } from '../services/allapi';
 import base_url from '../services/baseurl';
 import { toast } from 'react-toastify';
 import Editdoctor from './Editdoctor';
 import { responsecontext } from '../contextapi/Contextprovider';
+import SimpleNav from '../Components/SimpleNav';
+
 function Allprofessionals() {
-    const[pro,setpro]=useState([])
-    const{response}=useContext(responsecontext)
-    useEffect(()=>{
-        getallprofessionals()
+  const [pro, setpro] = useState([])
+  const { response } = useContext(responsecontext)
+  useEffect(() => {
+    getallprofessionals()
+  }, [response])
 
-    },[response])
+  const getallprofessionals = async () => {
+    const result = await getdoctorapi()
+    console.log(result)
+    if (result.status == 200) {
+      setpro(result.data)
+    }
+  }
 
-    const getallprofessionals=async()=>{
-        const result=await getdoctorapi()
-        console.log(result)
-        if(result.status==200){
-            setpro(result.data)
-        }
+  const deletedoctor = async (id) => {
+    const header = {
+      'Content-Type': 'application/json',
+      'Authorization': `Token ${sessionStorage.getItem('token')}`
     }
-    const deletedoctor=async(id)=>{
-      const header={
-        'Content-Type':'application/json',
-        'Authorization':`Token ${sessionStorage.getItem('token')}`
-      }
-      const result=await deletedoctorapi(id,header)
-      console.log(result)
-      if(result.status==200){
-        toast.success("Content is permentantly deleted")
-        getallprofessionals()
-      }
-      else{
-        toast.error("Access Denied")
-      }
+    const result = await deletedoctorapi(id, header)
+    console.log(result)
+    if (result.status == 200) {
+      toast.success("Content is permentantly deleted")
+      getallprofessionals()
     }
+    else {
+      toast.error("Access Denied")
+    }
+  }
 
   return (
-   <>
-   <Navbar expand="lg" className="bg-body-tertiary">
-        <Container className='d-flex justify-content-center'>
-          
-          <Navbar.Brand href="#" className='d-flex justify-content-center flex-row align-items-center'>  <i className="fa-regular fa-handshake fa-xl" style={{color: "#0f6ba3",}} />
-          {' '}
-            Mindpal </Navbar.Brand>
-           
-        </Container>
-       
-      </Navbar>
-      <h2 className='text-center mt-4'>All professionals</h2>
-      <div className='d-flex justify-content-center mt-5'>
-       
-        <div className='border shadow w-75 p-5'>
-           <Link className='btn btn-success my-3' to={'/adddoctor'}>Add Professionals</Link>
-           {
-            pro.length>0?
-            <div className='row justify-content-between'>
+    <>
+      <SimpleNav />
+      <div className="mp-team-section">
+        <h2 className="text-center mt-4">All Professionals</h2>
+        <div className="mt-4">
+          <Link className="btn btn-success my-3" to={'/adddoctor'}>Add Professionals</Link>
+          {
+            pro.length > 0 ?
+              <Row>
                 {
-                    pro.map(item=>(
-                        <Card style={{ width: '18rem' }} className='mb-3 p-0'>
-                        <Card.Img variant="top" src={`${base_url}/uploads/${item.image}`} style={{height:"250px"}} />
-                        <Card.Body>
-                          <Card.Title>{item.username}</Card.Title>
-                          <Card.Text>
+                  pro.map(item => (
+                    <Col md={4} sm={6} className="mb-4" key={item._id}>
+                      <div className="mp-doctor-card">
+                        <img src={`${base_url}/uploads/${item.image}`} alt={item.username} className="card-img-top" />
+                        <div className="card-body p-3">
+                          <h5 className="card-title">{item.username}</h5>
                           <h6>{item.qualification}</h6>
-                           
-                          </Card.Text>
                           <div>
-                       <button className='btn' onClick={()=>deletedoctor(item._id)}><i className="fa-solid fa-trash fa-xl" style={{color: "#991a46",}} /></button>   
-                        <Editdoctor pro={item}></Editdoctor>
-                          
+                            <button className="btn" onClick={() => deletedoctor(item._id)}>
+                              <i className="fa-solid fa-trash fa-xl text-danger" />
+                            </button>
+                            <Editdoctor pro={item}></Editdoctor>
                           </div>
-                         
-                        </Card.Body>
-                      </Card>
-
-                    ))
+                        </div>
+                      </div>
+                    </Col>
+                  ))
                 }
-           
-            </div>
-            :
-            <h2 className='text-center text-danger'>No Content Available</h2>
-           }
-            
-           
-            
+              </Row>
+              :
+              <h2 className="text-center text-danger">No Content Available</h2>
+          }
         </div>
-
       </div>
-   </>
+    </>
   )
 }
 

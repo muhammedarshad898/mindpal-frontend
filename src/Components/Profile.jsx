@@ -12,7 +12,7 @@
 //       const[preview,setpreview]=useState("")
 
 //     const{setresponse}=useContext(responsecontext)
-    
+
 
 //     const handleView = () => {
 //         setView(!view);
@@ -23,7 +23,7 @@
 //            setprofile({username:sessionStorage.getItem('uname')})
 //           }
 
-          
+
 //     },[])
 //     useEffect(()=>{
 //         if(profile.image){
@@ -68,8 +68,8 @@
 
 //     }
 
-   
-       
+
+
 //     return (
 //         <div className="position-relative">
 //             <div className='d-flex justify-content-between'>
@@ -77,7 +77,7 @@
 //             <button className="btn" onClick={handleView}>
 //                 {view ? (
 
-                   
+
 //                     <i className="fa-solid fa-chevron-up fa-lg" />
 //                 ) : (
 //                     <i className="fa-solid fa-chevron-down fa-lg" />
@@ -238,14 +238,13 @@ function Profile() {
             </div>
 
             {view && (
-                <div className="position-absolute end-0 bg-white shadow p-3 rounded" style={{ width: '500px', top: '100px', zIndex: '1000' }}>
+                <div className="mp-profile-dropdown">
                     <label className="d-block text-center">
-                        <input type="file" style={{ display: "none" }} onChange={(e) => setprofile({ ...profile, image: e.target.files[0] })} />
+                        <input type="file" className="d-none" onChange={(e) => setprofile({ ...profile, image: e.target.files[0] })} />
                         <img
                             src={preview ? preview : "https://medhacloud.com/wp-content/uploads/2023/03/Backup-Logo.svg"}
                             alt="Profile"
-                            className="img-fluid rounded-circle"
-                            style={{ cursor: "pointer", width: '80px', height: '80px' }}
+                            className="mp-profile-avatar"
                         />
                     </label>
                     <input

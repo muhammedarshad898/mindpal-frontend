@@ -9,10 +9,12 @@ import { Link } from 'react-router-dom';
 
 import Footer from '../Components/Footer';
 import Card from 'react-bootstrap/Card';
+import { Row, Col } from 'react-bootstrap';
 import { useState,useEffect } from 'react';
 import { getdoctorapi } from '../services/allapi';
 import base_url from '../services/baseurl';
 import { NavLink } from 'react-router-dom';
+import Header from '../Components/Header';
 
 
 function Appointment() {
@@ -37,84 +39,59 @@ function Appointment() {
   }
   return (
    <>
-    <Navbar expand="lg" data-bs-theme="light" className="navbar">
-        <Container>
-         
-          <Navbar.Brand href="/" className="text-primary" id="log">
-            <i className="fa-regular fa-handshake fa-xl" style={{ color: "#0f6ba3" }} />{' '}
-            Mindpal
-          </Navbar.Brand>
+    <Header />
 
-         
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-
-         
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ms-auto">
-              <Nav.Link as={NavLink} to="/" className="text-dark">Home</Nav.Link>
-              <Nav.Link as={NavLink} to="/psychologist" className="text-dark">Psychologists</Nav.Link>
-              <Nav.Link as={NavLink} to="/dr" className="text-dark">Psychiatry</Nav.Link>
-              <Nav.Link as={NavLink} to="/myappo" className="text-dark">My Appointments</Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-
- 
-
- <div className='d-flex justify-content-center align-items-center appointment'>
-
-  <div className='container'>
-    <h1 className='text-dark'>Hey,<span className='text-light'>{username}</span>... Proud of You</h1>
-    <h1 id='support'>You're Not Alone: Join Hands with Us for a Healthier Mind</h1>
-    <div className='d-flex justify-content-center mt-3'>
-    <Link className='btn' id='btn-slot' to={'/all'}>Book your slot</Link>
+    <div className='mp-appointment-hero'>
+      <Container className="text-center">
+        <h1>Hey, <span>{username}</span>... Proud of You</h1>
+        <h1>You're Not Alone: Join Hands with Us for a Healthier Mind</h1>
+        <div className='mt-3'>
+          <Link className='btn btn-primary mp-hero-cta' to={'/all'}>Book your slot</Link>
+        </div>
+      </Container>
     </div>
-  </div>
 
- 
-
-
- </div>
-<div className='container mt-5 mb-3'>
-  <h1 className='text-center text-success mb-5'>Top Ranked Professionals</h1>
+<div className='mp-section'>
+<div className='container'>
+  <h1 className='text-center mb-5'>Top Ranked Professionals</h1>
   {
     doctors.length>0?
-    <div className='row justify-content-center mt-3 '>
+    <Row className='justify-content-center'>
       {
         doctors.slice(0,6).map(item=>(
-          <Card style={{ width: '18rem' }} className='me-5 p-0 mb-3'>
-          <Card.Img variant="top" src={`${base_url}/uploads/${item.image}`} style={{height:"300px"}}  />
+          <Col xs={12} sm={6} md={4} className='d-flex justify-content-center mb-4' key={item._id}>
+          <Card className="mp-doctor-card">
+          <Card.Img variant="top" src={`${base_url}/uploads/${item.image}`} />
           <Card.Body>
             <Card.Title>{item.username}</Card.Title>
             <Card.Text>
              <h6>{item.qualification}</h6>
-             
+
             </Card.Text>
-            <Link className="btn btn-success" to={`/booking/${item._id}`}>Book A Slot</Link>
+            <Link className="btn btn-primary" to={`/booking/${item._id}`}>Book A Slot</Link>
           </Card.Body>
         </Card>
+        </Col>
 
         ))
       }
-    
- 
 
-  </div>
+
+
+  </Row>
   :
-  
 
 
-  
 
   <h2 className='text-center text-danger mt-3'>No professionals Available</h2>
   }
-  
-  
+
+
   <div className='d-flex justify-content-center'>
   <Link className='btn btn-primary' to={'/all'}>View More</Link>
   </div>
 
+</div>
 </div>
 <Footer></Footer>
    </>

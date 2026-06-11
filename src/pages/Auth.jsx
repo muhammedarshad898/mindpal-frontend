@@ -11,8 +11,8 @@ function Auth() {
 
   })
 
- 
-  
+
+
   const nav=useNavigate()
   const handleAuthstatus=()=>{
     setAuthsetstatus(!Authstatus)
@@ -25,14 +25,14 @@ function Auth() {
 
     }
     else{
-     
+
       const res=await registerapi(user)
       console.log(res)
       if(res.status==201){
         toast.success("Succesfully Registered")
         setuser({
           email:"",password:"",username:"",role:""
-      
+
         })
         handleAuthstatus()
       }
@@ -44,52 +44,52 @@ function Auth() {
           toast.error("something went wromg")
 
         }
-        
+
       }
     }
   }
-  
-  
-      
- 
+
+
+
+
 
   useEffect(() => {
     const isAuthenticated = sessionStorage.getItem('token');
     if (isAuthenticated) {
-        nav('/appointment', { replace: true }); 
+        nav('/appointment', { replace: true });
     }
 }, []);
- 
+
   const handlelogin = async () => {
-    const { email, password } = user; 
+    const { email, password } = user;
     if (!email || !password) {
         toast.warning("Enter a valid input");
     } else {
         try {
-            const res = await loginapi({ email, password }); 
+            const res = await loginapi({ email, password });
             console.log(res);
 
             if (res.status === 200) {
                 toast.success("Login Successful");
-                
-                
+
+
                 setuser({
                     email: "",
                     password: ""
                 });
 
-               
+
                 sessionStorage.setItem('token', res.data.token);
                 sessionStorage.setItem('userid', res.data.userid);
                 sessionStorage.setItem('uname', res.data.username);
                 sessionStorage.setItem('role', res.data.role);
                 sessionStorage.setItem('email', res.data.email);
-                
+
                setAuthsetstatus(true)
 
-                
 
-               
+
+
                 if (res.data.role === 'admin') {
                     nav('/admin');
                 } else if (res.data.role === 'doctor') {
@@ -108,55 +108,53 @@ function Auth() {
 };
 
 
-  
+
   return (
     <>
-    
-    <div className='d-flex justify-content-center align-items-center w-100' style={{height:"100vh"}}>
-      <div className='border shadow w-50 d-flex flex-column justify-content-center align-items-center h-75' id='auth'>
-        <div className='authbg p-3 w-50 d-flex flex-column flex-wrap justify-content-center align-items-center rounded' style={{height:"fit-content"}}>
-        <h1 className='text-center mb-5 loghead'>
+
+    <div className='mp-auth-page'>
+      <div className='mp-auth-card'>
+        <h1>
             {
               Authstatus?
               <>Register</>
               :<>Login</>
             }
           </h1>
-          
-          
 
 
-       
+
+
         {
-          Authstatus&&(  
+          Authstatus&&(
             <>
-            <input type="text" className='form-control mb-3 w-75' placeholder='UserName' value={user.username} onChange={(e)=>setuser({...user,username:e.target.value})}  />
+            <input type="text" className='form-control' placeholder='UserName' value={user.username} onChange={(e)=>setuser({...user,username:e.target.value})}  />
             <select
-                  className='form-control mb-3 w-75'
+                  className='form-control'
                   value={user.role}
                   onChange={(e) => setuser({ ...user, role: e.target.value })}
                 >
                   <option value="user">User</option>
                   <option value="doctor">Doctor</option>
                 </select>
-            </>      
-          
-        
+            </>
+
+
           )
         }
-        
-          
-          
-        <input type="text" className='form-control mb-3 w-75' placeholder='Email' value={user.email} onChange={(e)=>setuser({...user,email:e.target.value})}  />
-          <input type="password" className='form-control mb-3 w-75' value={user.password} placeholder='Password' onChange={(e)=>setuser({...user,password:e.target.value})}  />
+
+
+
+        <input type="text" className='form-control' placeholder='Email' value={user.email} onChange={(e)=>setuser({...user,email:e.target.value})}  />
+          <input type="password" className='form-control' value={user.password} placeholder='Password' onChange={(e)=>setuser({...user,password:e.target.value})}  />
           <div className='d-flex justify-content-between mt-5'>
             {
               Authstatus?
-              <button className='btn btn-success' onClick={handleregister}>Register</button>
+              <button className='btn btn-primary' onClick={handleregister}>Register</button>
               :
-              <button className='btn btn-success' onClick={handlelogin}>Login</button>
+              <button className='btn btn-primary' onClick={handlelogin}>Login</button>
             }
-           
+
               <button className='btn btn-link' onClick={handleAuthstatus}>
                 {
                   Authstatus?
@@ -166,19 +164,16 @@ function Auth() {
                 }
               </button>
 
-              
-             
-            
-           
+
+
+
+
           </div>
 
         </div>
-        
-         
-        </div>
 
       </div>
-    
+
     </>
   )
 }

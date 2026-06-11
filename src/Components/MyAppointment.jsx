@@ -6,6 +6,7 @@ import { useState,useEffect } from 'react';
 import { getmyappointmentapi } from '../services/allapi';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import SimpleNav from './SimpleNav';
 
 function MyAppointment() {
     const[myappo,setappo]=useState([])
@@ -26,9 +27,9 @@ function MyAppointment() {
         if(result.status==200){
             setappo(result.data)
         }
-        
 
-       
+
+
     }
 
     const handleLogout = () => {
@@ -36,27 +37,18 @@ function MyAppointment() {
       toast.info("Logged out successfully!");
       nav('/auth', { replace: true }); // Redirect immediately after logout
    };
-   
-  
-  
-  
+
+
+
+
   return (
    <>
-    <Navbar expand="lg" className="bg-body-tertiary">
-        <Container className='d-flex justify-content-between'>
-          
-          <Navbar.Brand href="#" className='d-flex justify-content-center flex-row align-items-center'>  <i className="fa-regular fa-handshake fa-xl" style={{color: "#0f6ba3",}} />
-          {' '}
-            Mindpal </Navbar.Brand>
-            <button className='btn btn-danger' onClick={handleLogout}>Logout</button>
-           
-        </Container>
-       
-      </Navbar>
-     
+    <SimpleNav rightContent={<button className='btn btn-danger' onClick={handleLogout}>Logout</button>} />
+
         <div className='container mt-5'>
             {
                 myappo.length>0?
+                <div className="mp-table-container">
                 <Table striped bordered hover>
       <thead>
         <tr className='text-center'>
@@ -65,7 +57,7 @@ function MyAppointment() {
           <th>Therappist Name</th>
           <th>Date of Appointment</th>
           <th>Time</th>
-         
+
         </tr>
       </thead>
       {
@@ -77,32 +69,28 @@ function MyAppointment() {
               <td>{item.doctorid.username}</td>
               <td>{item.date}</td>
               <td>{item.time}</td>
-             
+
             </tr>
-            
+
           </tbody>
-       
+
 
         ))
       }
-     
 
-           
-     
+
+
     </Table>
+    </div>
     :<h1 className='text-center text-danger'>No Appointment Taken Yet!!</h1>
-    
-            }
-       
-        
-    
-   
-   
-       </div>
-      
-   
 
-  
+            }
+
+
+
+       </div>
+
+
 
    </>
   )

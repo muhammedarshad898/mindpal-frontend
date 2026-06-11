@@ -12,35 +12,35 @@ import { responsecontext } from '../contextapi/Contextprovider';
 function AddPost() {
 
     const [show, setShow] = useState(false);
-    
+
     const {setresponse}=useContext(responsecontext)
 
   const handleClose = () =>{setposts({
     username:"",bio:"",title:"",thought:"",date:""
-  }) 
+  })
   setShow(false);}
   const handleShow = () => setShow(true);
   const[posts,setposts]=useState({
     username:"",bio:"",title:"",thought:"",date:""
   })
- 
 
- 
+
+
   const handleaddpost=async()=>{
     console.log(posts)
     const{username,bio,title,thought,date}=posts
    if(!username||!bio||!title||!thought||!date){
     toast.warning("invalid data")
-    
+
    }
    else{
     const header={
       'Content-Type':'application/json',
       'Authorization':`Token ${sessionStorage.getItem('token')}`
     }
-    
 
-   
+
+
     const result=await addpostapi(posts,header)
     console.log(result)
     if(result.status==201){
@@ -67,14 +67,14 @@ function AddPost() {
           <Modal.Title className='text-dark' >Share Your Story</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-           
+
                 <input type="text" className='form-control mb-3' onChange={(e)=>setposts({...posts,username:e.target.value})} placeholder='Enter Username' />
                 <input type="text" className='form-control mb-3' placeholder='Enter Date' onChange={(e)=>setposts({...posts,date:e.target.value})} />
                 <input type="text" className='form-control mb-3' placeholder='Day Title' onChange={(e)=>setposts({...posts,title:e.target.value})}  />
                 <textarea name="" id="" placeholder='write a Bio ,maximum 30 words' onChange={(e)=>setposts({...posts,bio:e.target.value})} className='form-control mb-3'></textarea>
-                <textarea name="" id="" className='form-control mb-3' style={{height:"500px"}} placeholder='Share Your thoughts' onChange={(e)=>setposts({...posts,thought:e.target.value})}></textarea>
-               
-         
+                <textarea name="" id="" className='mp-post-textarea form-control mb-3' placeholder='Share Your thoughts' onChange={(e)=>setposts({...posts,thought:e.target.value})}></textarea>
+
+
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
