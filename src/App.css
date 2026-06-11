@@ -448,12 +448,113 @@
   box-shadow: var(--mp-shadow-sm);
   margin-top: var(--mp-space-6);
 }
-.mp-booking-form .form-control {
+.mp-booking-form .form-control,
+.mp-booking-form .form-select {
   max-width: 400px;
 }
 .mp-booking-actions .btn {
   min-width: 200px;
   padding: var(--mp-space-3) var(--mp-space-6);
+}
+
+/* ============================================
+   MY APPOINTMENTS
+   ============================================ */
+
+.mp-appointment-card {
+  background: var(--mp-neutral-0);
+  border: 1px solid var(--mp-neutral-200);
+  border-radius: var(--mp-radius-xl);
+  overflow: hidden;
+  box-shadow: var(--mp-shadow-sm);
+  transition: var(--mp-transition);
+  height: 100%;
+}
+.mp-appointment-card:hover {
+  box-shadow: var(--mp-shadow-md);
+  transform: translateY(-2px);
+}
+.mp-appointment-card-header {
+  background: var(--mp-primary-50);
+  padding: var(--mp-space-3) var(--mp-space-5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--mp-primary-100);
+}
+.mp-appointment-number {
+  font-weight: 600;
+  color: var(--mp-primary-600);
+  font-size: 0.85rem;
+}
+.mp-appointment-badge {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--mp-primary-600);
+  background: var(--mp-primary-100);
+  padding: 2px 10px;
+  border-radius: var(--mp-radius-full);
+}
+.mp-appointment-card-body {
+  padding: var(--mp-space-5);
+}
+.mp-appointment-doctor {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--mp-neutral-800);
+  margin-bottom: var(--mp-space-4);
+  padding-bottom: var(--mp-space-3);
+  border-bottom: 1px solid var(--mp-neutral-100);
+}
+.mp-appointment-doctor i {
+  color: var(--mp-primary-500);
+}
+.mp-appointment-detail {
+  display: flex;
+  align-items: center;
+  gap: var(--mp-space-1);
+  margin-bottom: var(--mp-space-2);
+  font-size: 0.9rem;
+  color: var(--mp-neutral-600);
+}
+.mp-appointment-detail i {
+  color: var(--mp-primary-400);
+  width: 18px;
+  text-align: center;
+}
+.mp-appointment-condition {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--mp-space-1);
+  margin-top: var(--mp-space-3);
+  padding-top: var(--mp-space-3);
+  border-top: 1px solid var(--mp-neutral-100);
+  font-size: 0.85rem;
+  color: var(--mp-neutral-500);
+}
+.mp-appointment-condition i {
+  color: var(--mp-primary-400);
+  width: 18px;
+  text-align: center;
+  margin-top: 2px;
+}
+.mp-empty-state {
+  text-align: center;
+  padding: var(--mp-space-12) var(--mp-space-6);
+}
+.mp-empty-state i {
+  font-size: 3rem;
+  color: var(--mp-neutral-300);
+  margin-bottom: var(--mp-space-4);
+  display: block;
+}
+.mp-empty-state h4 {
+  color: var(--mp-neutral-700);
+  margin-bottom: var(--mp-space-2);
+}
+.mp-empty-state p {
+  color: var(--mp-neutral-400);
+  margin-bottom: var(--mp-space-6);
 }
 
 /* ============================================

@@ -10,10 +10,20 @@ function Paymentsuccess() {
     const params = new URLSearchParams(location.search);
     const paymentId = params.get('paymentId');
     const PayerID = params.get('PayerID');
+    const doctorid = params.get('doctorid');
 
     if (paymentId && PayerID) {
-      toast.success("Payment Successful!");
-      setTimeout(() => navigate('/appointment'), 3000);
+      sessionStorage.setItem('paymentSuccess', 'true');
+      toast.success("Payment Successful! Complete your booking.");
+      setTimeout(() => {
+        if (doctorid) {
+          navigate(`/booking/${doctorid}`);
+        } else {
+          navigate('/');
+        }
+      }, 2000);
+    } else {
+      navigate('/');
     }
   }, [location, navigate]);
 
@@ -25,7 +35,7 @@ function Paymentsuccess() {
       <h2 className="text-success">Payment Successful!</h2>
       {paymentId && <p><strong>Payment ID:</strong> {paymentId}</p>}
       <p>Your payment has been processed successfully.</p>
-      <p>Redirecting to your appointments...</p>
+      <p>Redirecting to complete your booking...</p>
     </div>
   );
 }
